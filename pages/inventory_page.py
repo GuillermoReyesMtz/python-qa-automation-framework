@@ -19,7 +19,10 @@ class InventoryPage:
             EC.element_to_be_clickable(self.LOGOUT_LINK)
         )
 
-        logout_button.click()
+        self.driver.execute_script(
+            "arguments[0].click();",
+            logout_button
+        )
     
     def logout(self):
         self.click_burger_menu()
