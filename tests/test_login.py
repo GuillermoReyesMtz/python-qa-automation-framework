@@ -12,4 +12,4 @@ def test_valid_login(driver):
         "secret_sauce"
     )
 
-    assert driver.current_url == "https://www.saucedemo.com/inventory/"
+    assert driver.current_url == "https://www.saucedemo.com/inventory.html"
