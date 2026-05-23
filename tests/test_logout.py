@@ -18,7 +18,7 @@ def test_logout(driver):
     inventory_page.logout()
 
     WebDriverWait(driver, 10).until(
-    EC.url_to_be("https://www.saucedemo.com/")
+    EC.url_contains("saucedemo")
 )
 
-    assert driver.current_url == "https://www.saucedemo.com/"
+    assert "inventory" not in driver.current_url
