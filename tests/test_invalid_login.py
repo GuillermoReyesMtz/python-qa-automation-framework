@@ -9,7 +9,7 @@ def test_valid_login(driver):
 
     login_page.login(
         "standard_user",
-        "secret_sauce"
+        "asodifn"
     )
 
-    assert "WRONG_TEXT" in driver.current_url
+    assert driver.current_url == "https://www.saucedemo.com/"
