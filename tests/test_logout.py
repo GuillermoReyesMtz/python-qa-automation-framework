@@ -1,6 +1,7 @@
 from pages.login_page import LoginPage
 from pages.inventory_page import InventoryPage
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 def test_logout(driver):
 
@@ -15,5 +16,9 @@ def test_logout(driver):
     )
 
     inventory_page.logout()
+
+    WebDriverWait(driver, 10).until(
+    EC.url_to_be("https://www.saucedemo.com/")
+)
 
     assert driver.current_url == "https://www.saucedemo.com/"
