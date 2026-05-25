@@ -31,14 +31,41 @@ class InventoryPage:
         self.click_logout()
 
     def add_all_items_to_cart(self):
-        add_to_cart_buttons = self.driver.find_elements(*self.ADD_TO_CART_BUTTONS)
-        for button in add_to_cart_buttons:
-            button.click()
-    
-    def get_cart_item_count(self):
 
-        badge = self.driver.find_element(*self.CART_BADGE)
-        return int(badge.text) if badge else 0
+        buttons_count = len(
+            self.driver.find_elements(
+                *self.ADD_TO_CART_BUTTONS
+            )
+        )
+
+        for expected_count in range(1, buttons_count + 1):
+
+            add_buttons = [
+                button for button in self.driver.find_elements(
+                    *self.ADD_TO_CART_BUTTONS
+                )
+                if button.text == "Add to cart"
+            ]
+
+            self.driver.execute_script(
+                "arguments[0].click();",
+                add_buttons[0]
+            )
+
+            WebDriverWait(self.driver, 5).until(
+                lambda d: int(self.get_cart_badge_count()) >= expected_count
+            )
+    
+    def get_cart_badge_count(self):
+
+        badges = self.driver.find_elements(
+            *self.CART_BADGE
+        )
+
+        if not badges:
+            return "0"
+
+        return badges[0].text
 
     def get_add_to_cart_buttons_count(self):
 

@@ -21,7 +21,7 @@ def test_add_all_items_to_cart(driver):
     inventory_page.add_all_items_to_cart()
 
     actual_count = (
-        inventory_page.get_cart_item_count()
+        inventory_page.get_cart_badge_count()
     )
 
-    assert actual_count == expected_count, f"Expected {expected_count} items in cart, but got {actual_count}"
+    assert int(actual_count) == expected_count, f"Expected {expected_count} items in cart, but got {actual_count}"
