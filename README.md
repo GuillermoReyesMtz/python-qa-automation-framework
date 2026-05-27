@@ -203,7 +203,4 @@ Guillermo Reyes Martínez
 - Master's in Computer Science
 - QA Automation enthusiast
 - AI and NLP background
-
-LinkedIn:
-
-[text](https://www.linkedin.com/in/guillermo-reyes-mart%C3%ADnez-a074161b7/)
+- [LinkedIn](https://www.linkedin.com/in/guillermo-reyes-mart%C3%ADnez-a074161b7/)
