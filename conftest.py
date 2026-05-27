@@ -16,6 +16,19 @@ def driver():
     chrome_options.add_argument("--headless")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-notifications")
+    chrome_options.add_argument("--disable-save-password-bubble")
+    chrome_options.add_argument("--disable-popup-blocking")
+    chrome_options.add_argument("--disable-features=PasswordLeakDetection")
+    chrome_options.add_argument("--incognito")
+
+    chrome_options.add_experimental_option(
+        "prefs",
+        {
+            "credentials_enable_service": False,
+            "profile.password_manager_enabled": False
+        }
+    )
 
     driver = webdriver.Chrome(
         service=Service(ChromeDriverManager().install()),

@@ -8,6 +8,7 @@ class InventoryPage:
     LOGOUT_LINK = (By.ID, "logout_sidebar_link")
     ADD_TO_CART_BUTTONS = (By.CLASS_NAME, "btn_inventory")
     CART_BADGE = (By.CLASS_NAME, "shopping_cart_badge")
+    SHOPPING_CART_LINK = (By.CLASS_NAME, "shopping_cart_link")
 
     def __init__(self, driver):
         self.driver = driver
@@ -74,3 +75,20 @@ class InventoryPage:
         )
 
         return len(buttons)
+    
+    def click_cart(self):
+        cart_link = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.SHOPPING_CART_LINK)
+        )
+
+        self.driver.execute_script(
+            "arguments[0].click();",
+            cart_link
+        )
+
+        WebDriverWait(self.driver, 10).until(
+            EC.url_contains("cart.html")
+        )
+    
+    def go_to_cart(self):
+        self.click_cart()
