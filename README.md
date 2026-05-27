@@ -1,34 +1,72 @@
 # Python QA Automation Framework
 
-A professional QA automation framework built with Python, Selenium, and pytest, designed to demonstrate scalable and maintainable web test automation practices.
+Automated testing framework built with Python, Selenium, pytest, and GitHub Actions using the Page Object Model (POM) design pattern.
 
-## Features
-
-- UI test automation with Selenium
-- Test execution using pytest
-- Page Object Model (POM) structure
-- Automated reporting
-- Screenshot capture on failures
-- Scalable and maintainable framework architecture
-- CI/CD integration with GitHub Actions
+[![Python QA Automation](https://github.com/GuillermoReyesMtz/python-qa-automation-framework/actions/workflows/automation.yml/badge.svg)](https://github.com/GuillermoReyesMtz/python-qa-automation-framework/actions/workflows/automation.yml)
 
 ---
 
-## Technologies Used
+# Demo
+
+![full test flow](assets/2026-05-2715-03-36-ezgif.com-cut.gif)
+
+---
+
+# Features
+
+- Selenium WebDriver automation
+- pytest test framework
+- Page Object Model (POM) architecture
+- GitHub Actions CI integration
+- Headless Chrome execution
+- Automatic screenshots on test failure
+- Explicit waits and synchronization handling
+- End-to-end checkout flow automation
+- Cross-environment execution (local + cloud runners)
+
+---
+
+# Technologies Used
 
 - Python
 - Selenium WebDriver
 - pytest
 - webdriver-manager
 - GitHub Actions
+- Chrome Headless
 
 ---
 
-## Project Structure
+# Implemented Test Flows
+
+## Login Flow
+- Valid login test
+- URL validation after authentication
+
+## Logout Flow
+- Successful logout validation
+- Session redirect verification
+
+## Add To Cart Flow
+- Add all products to cart
+- Dynamic cart badge validation
+- Dynamic product counting without hardcoded values
+
+## Checkout Flow
+- Full checkout process automation
+- Cart navigation
+- User information form completion
+- Order completion validation
+- Final confirmation message assertion
+
+---
+
+# Project Structure
 
 ```bash
 python-qa-automation-framework/
 │
+├── assets/
 ├── tests/
 ├── pages/
 ├── utils/
@@ -39,3 +77,74 @@ python-qa-automation-framework/
 ├── pytest.ini
 ├── conftest.py
 └── README.md
+```
+---
+
+# Design Pattern
+
+This framework follows the **Page Object Model (POM)** design pattern.
+
+Each page of the application is represented by a dedicated Python class containing:
+- Locators
+- Page actions
+- Reusable methods
+
+This architecture improves:
+- Maintainability
+- Scalability
+- Readability
+- Test stability
+
+Example structure:
+
+```bash
+pages/
+├── login_page.py
+├── inventory_page.py
+├── cart_page.py
+├── checkout_page.py
+├── checkout_page_two.py
+└── complete_page.py
+```
+
+---
+
+# CI/CD Integration
+
+GitHub Actions automatically executes the test suite on every push to the repository.
+
+Implemented pipeline features:
+- Dependency installation
+- Headless Chrome execution
+- Automated pytest execution
+- CI validation on push
+
+Workflow location:
+
+```bash
+.github/workflows/automation.yml
+```
+
+---
+
+# Synchronization Handling
+
+To improve automation reliability, the framework implements:
+- Explicit waits
+- URL synchronization
+- Clickable element validation
+- Dynamic state verification
+
+Special handling was implemented for:
+- Headless browser timing issues
+- Chrome password manager popup interference
+- Cloud runner synchronization inconsistencies
+
+---
+
+# Screenshots on Failure
+
+When a test fails:
+- A screenshot is automatically captured
+- Screenshots are stored inside the `/screenshots` directory
+- Helps debugging both local and CI failures
