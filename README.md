@@ -148,3 +148,62 @@ When a test fails:
 - A screenshot is automatically captured
 - Screenshots are stored inside the `/screenshots` directory
 - Helps debugging both local and CI failures
+
+---
+
+# Installation
+
+## Clone the repository
+
+```bash
+git clone
+```
+## Enter the project folder
+
+```bash
+cd python-qa-automation-framework
+```
+## Create virtual environment
+```bash
+python -m venv venv
+```
+## Activate virtual environment
+### Windows:
+```bash
+venv\Scripts\activate
+```
+### Linux/Mac:
+```bash
+source venv/bin/activate
+```
+## Install dependencies:
+```bash
+pip install -r requirements.txt
+```
+## Run tests:
+```bash
+pytest
+```
+
+# Future improvements
+
+- Parallel execution with pytest-xdist
+- Docker integration
+- Allure reporting
+- API automation testing
+- Data-driven testing
+- Cross-browser testing
+- Jenkins pipeline integration
+
+# Autor
+
+Guillermo Reyes Martínez
+
+- Mechatronics Engineer
+- Master's in Computer Science
+- QA Automation enthusiast
+- AI and NLP background
+
+LinkedIn:
+
+[text](https://www.linkedin.com/in/guillermo-reyes-mart%C3%ADnez-a074161b7/)
